@@ -58,6 +58,41 @@ const floatString = "20.10String";
 // parseFloat отримує числа після крапки с початку рядка
 console.log(parseFloat(floatString) + num1);
 
+// Суворе порівння (порівняння їде за типами додатково)
+console.log(10 === "10"); // false
+// не суворе порівняння(не порівнює типи даних)
+console.log(10 == "10"); // true
+
 // Перевірка на число
+
+const num22 = "qwgeyqgweuyiqgwiegqwiue";
+
+console.log(!Number.isNaN(+num22));
+
+const validNumber = 22;
+
+// ! - логічний опертор що означає НЕ
+console.log(!Number.isNaN(validNumber));
+
 // Додавання чисел з плаваючою точкою
+
+// * 10 щоб отримати ціле число
+// результат виразу / на 10 щоб отримати дробове число
+console.log((0.2 * 10 + 0.1 * 10) / 10 === 0.3);
+
 // Обʼєкт Math
+
+// floor - округлює до меншого числа
+console.log(Math.floor(0.9));
+// ceil - округлення в більшу сторону
+console.log(Math.ceil(1.1));
+// round - округлює за правилами математики
+console.log(Math.round(11.5));
+// Math.random() - Рандомить число від 0 до 1 (при додаткових налаштуваннях до будь якого числа яке вам треба)
+console.log(Math.floor(Math.random() * 10 + 1));
+
+console.log(Math.max(20, 30, 40, 50, 10, 20, 40, 1000, 2000, 5000));
+console.log(Math.min(20, 30, 40, 50, 10, 20, 40, 1000, 2000, 5000));
+// pow - приводить число до ступіня
+console.log(Math.pow(10, 2));
+console.log(10 ** 2);
