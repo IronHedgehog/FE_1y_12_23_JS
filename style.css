@@ -1,0 +1,3 @@
+.class > #class-li > [href^="https"] {
+  text-align: center;
+}
