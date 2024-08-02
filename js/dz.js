@@ -13,14 +13,46 @@ const input = document.querySelector("#input");
 const div = document.querySelector("#div");
 
 // Подія вводу тексту називається input
+// onInput - обробник події
 input.addEventListener("input", onInput);
 
-function onInput() {
+// 1-й параметр, це перше слово у круглих дужках
+// ОБРОБНИК ПОДІЇ ІНПУТ
+function onInput(eventObject) {
+  console.log(eventObject.data);
+  // записи нижче дозволяють отримати поточне занчення інпута яке буде постійно оновлюватись залежно ві того що пише користувач
+  console.log(eventObject.currentTarget.value); // ціль на якій стоїть обробник події
+  console.log(eventObject.target.value); // target - та ціль на якій відпрацювала подія
   console.log("Ви написали буковку");
 }
+
+// removeEventListener - видаляє слухач події
+// input.removeEventListener("input", onInput);
 
 // (17 строка)текстове поле.значення
 
 const inputValue = input.value;
 
 div.textContent = inputValue;
+
+// Створити розмітку  з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення.
+
+// отримати доступ до зображення(до,будь-якого, html тегу) (querySelector)
+// document - вся HTML сторінка
+const img = document.querySelector(".img");
+
+//  змінити значення атрибута "src" на шлях до іншого зображення
+
+// щоб замінити значення атрибуту ми маємо звернутися до змінної дез ми отримали доступ до HTML-елементу, через крапку прописати арибут який ми замінюємо. через = присвоїти нове значення
+
+img.src =
+  "https://png.pngtree.com/thumb_back/fw800/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg";
+
+// Створити розмітку  з посиланням та зображенням. За допомогою JavaScript отримати доступ до посилання та змінити значення атрибута "href" на нову URL-адресу. Також отримати доступ до зображення та додати новий атрибут "alt" з описом зображення.
+
+// Створити розмітку  зі списком елементів. За допомогою JavaScript отримати доступ до першого елемента списку та змінити його вміст на новий текст.
+
+// getElementById - дозволяє отримати доступ до елементу за ID
+const ul = document.getElementById("ul");
+
+ul.firstElementChild.textContent = "Замінили через JS";
