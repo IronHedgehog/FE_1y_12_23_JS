@@ -8,7 +8,9 @@
   </head>
   <body>
     <!-- QUEST 1 -->
-    <button class="button" data-action="open-modal">Відкрити модалку</button>
+    <button class="button" id="btn1" data-action="open-modal">
+      Відкрити модалку
+    </button>
 
     <div class="backdrop js-backdrop">
       <div class="modal">
@@ -23,7 +25,12 @@
           window. Modal windows are sometimes called heavy windows or modal
           dialogs because they often display a dialog box.
         </p>
-        <button type="button" class="button" data-action="close-modal">
+        <button
+          type="button"
+          id="btn2"
+          class="button"
+          data-action="close-modal"
+        >
           Закрити
         </button>
       </div>
@@ -48,5 +55,6 @@
     <!-- QUEST 4 -->
     <input type="text" placeholder="Ваше ім'я?" id="name-input" />
     <h1>Привіт, <span id="name-output">незнайомець</span>!</h1>
+    <script src="./dz.js"></script>
   </body>
 </html>

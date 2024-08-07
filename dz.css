@@ -20,8 +20,11 @@ body.show-modal .modal {
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 999;
 
+  /* pointer - курсор, events - події */
   pointer-events: none;
+  /* прозорість - 0:прозоро, 1- не прозоро */
   opacity: 0;
+  /* бачення - прихований або не прихований */
   visibility: hidden;
   transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
 }
