@@ -4,7 +4,7 @@
 // консоль.
 
 const temperatureC = 22;
-const temperatureF = (22 * 9) / 5 + 32;
+const temperatureF = (temperatureC * 9) / 5 + 32;
 console.log(temperatureF);
 
 // 2. Створити змінну для зберігання кількості днів у місяці.
