@@ -1,64 +1,55 @@
-// console.log("" == false);
-// console.log(0 == false);
-// console.log(false == false);
-// console.log(NaN == false);
-// console.log(null == false);
-// console.log(undefined == false);
+//глобальна область бачення(Робить ваш код і ваші змінні доступними всюди)
+const a = 5;
 
-// if (" ") {
-//   console.log("РОБЕ");
-// }
-// && - Якщо бачить фолс повертає вам фолс значення (значення на якому застопорився)
-console.log(1 && 0 && 10 && 1);
-
-// "" - false
-
-// "" && "Artem" - false
-
-// false || 0 - false
-console.log(("" && "Artem") || 0 || 10 || false);
-
-console.log("" && "Artem");
-console.log(false || 0);
-
-const logIn = true;
-// якщо
-if (logIn === true) {
-  console.log(" ПРивіт, користувач, ти залогінений");
+// js - { } - блок, обʼєкт
+//
+{
+  const b = 10;
+  console.log(b);
+  {
+    const c = 20;
+    console.log(c);
+    console.log(b);
+    console.log(c + b);
+    {
+      const d = 40;
+      console.log(a);
+    }
+  }
+  console.log(c + b);
 }
 
-// const password = prompt("Введіть ваш пароль");
-// password.length - Кількість символів у змінній password
+// 1)Ключове слово switch
+// 2)Key -
 
-// якщо ... інакше
-// if (password.length < 6) {
-//   alert("Ваш пароль не надійний");
-// } else {
-//   alert("Ви геній записів паролю");
+// if (key === value) {
 // }
 
-const userAge = 70;
+const GOLD = "gold";
+const SILVER = "silver";
+const VIP = "vip";
 
-if (userAge <= 16) {
-  alert("Ви навчаєтесь у школі");
-} else if (userAge <= 27) {
-  alert("Ви студент");
-} else if (userAge <= 40) {
-  alert("Ви працюєте");
-} else if (userAge <= 60) {
-  alert("Вам дають пенсію");
-} else {
-  alert("Ви легенда");
+const subscribe = VIP;
+
+switch (subscribe) {
+  // case - завдання
+  case "vip":
+    console.log("Ваша підписка vip");
+    break;
+  // зупинка, перерва
+  case "gold":
+    console.log("Ваша підписка gold");
+    break;
+  // зупинка, перерва
+  case "silver":
+    console.log("Ваша підписка silver");
+    break;
+  // зупинка, перерва
+
+  // default - за замовчуванням
+  default:
+    console.log(
+      "Жодне з завдань не підійшло які я вмію виконувати. Я виконав операцію за замовчуванням"
+    );
+    break;
 }
-
-const age = 17;
-
-const isAdult = age >= 18 ? "Так, людині є 18 років" : "Людині намає 18 років";
-
-// if (age >= 18) {
-//   console.log("Так, людині є 18 років");
-// } else {
-//   console.log("Людині намає 18 років");
-// }
-
-console.log(isAdult);
