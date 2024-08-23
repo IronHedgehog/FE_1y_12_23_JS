@@ -23,7 +23,7 @@
 //i = i + 10 - додавання до лічильника(ітерація)
 // Ці 4 операції будуть виконуватись по колу поки цикл не завершиться
 for (let i = 10; i <= 100; i = i + 10) {
-  console.log(i);
+  // console.log(i);
 }
 
 // while - використовується для того,щоб викликати нескінченні цикли
@@ -34,16 +34,67 @@ let password = false;
 
 const okPassword = "qwerty";
 
-let counter = 0;
+let counter = 10;
 
-while (!password) {
-  const inputPassword = prompt("Введи вірний пароль");
-  if (inputPassword === okPassword) {
-    password = true;
+// while (схожий на if) - буде виконуватись нескінченно поки умова в дужках не буде дорівнювати false
+
+// break - оператор який дозволяє спинити виконання циклів
+
+// while (!password) {
+//   const inputPassword = prompt("Введи вірний пароль");
+//   if (inputPassword === okPassword) {
+//     password = true;
+//   }
+//   counter++;
+//   if (counter === 3) {
+//     alert("Ваш акаунт тимчасово заблоковано");
+//     break;
+//   }
+// }
+
+while (counter > 0 && counter <= 10) {
+  console.log(counter);
+  counter--;
+}
+
+const winnerNumbers = [1, 27, 31, 44, 57, 62, 73, 80, 95, 10];
+
+const petro = [1, 27, 31, 4, 5];
+
+console.log(petro);
+console.log(winnerNumbers);
+
+for (let i = 0; i < winnerNumbers.length; i++) {
+  for (let j = 0; j < petro.length; j++) {
+    if (winnerNumbers[i] === petro[j]) {
+      counter++;
+      if (counter >= 3) {
+        // alert("Ви перемогли");
+      }
+    }
   }
-  counter++;
-  if (counter === 3) {
-    alert("Ваш акаунт тимчасово заблоковано");
-    password = true;
+}
+
+const array = ["Яблуко", "Апельсин", "Груша"];
+let index = array.length - 1;
+
+// do while - завжди виконується хоча б раз
+do {
+  console.log(array[index]);
+  index--;
+} while (index >= 3);
+
+for (let i = 1; i < 1000; i++) {
+  if (i === 5) {
+    console.log("Ви вийграли супер приз");
+    break;
   }
+}
+
+for (let i = 0; i < 1000; i++) {
+  if (i === 23) {
+    // continue - продовжити(скіпнути/пропустити)
+    continue;
+  }
+  console.log(i);
 }
