@@ -1,38 +1,48 @@
-// щоб створити масив (список) даних то ви маєте записати квадратні дужки[]а вже в них через кому перелічувати,що ви хочете тут зберігати
+const arrayStr = ["Hello", "world!", "!"];
 
-// список продуктів які попросили придбати додому
-// Зазвичай в масивах зберігаються однотипні дані
+// join() - збирає з масиву строку
+// Приймає параметром роздільник (знак який буде стояти між словами)
+const testString = arrayStr.join(" ");
 
-// масив [](список) = <ul>(список)
+console.log(testString);
+// split() - збирає  з строки  масив
 
-// щоб створити список в JS ми маємо створити масив[]
-const products = ["potato", "onion", "cheaps"];
+console.log(testString.split());
 
-// Нам треба картоплю вихреслити з списку
-// дізнатись індекс необхідного елементу(індекси розраховуються з 0)
-//після назви масиву одразу прописати квадратні дужки []
-// у квадратних дужках вписати індекс елементу з яким ми бажаємо працювати
-console.log(products[0]);
+const users = ["Artem", "Petro", "Tema"];
 
-const random = ["fixme", 400, "сторінку не знайдено", null, undefined, true];
+console.log(users.includes("Artem"));
 
-console.log(random);
+// includes
+for (let i = 0; i < users.length; i++) {
+  const element = users[i];
+  if (element.toLowerCase().trim() === "artem".toLowerCase().trim()) {
+    console.log(true);
+  }
+}
 
-// Масиви(списки) - зазвичай містять у собі один тип даних
+//indexOf
+// Повертає індекс елементу який ви шукаєте або повертає -1 якщо елементу який ви шукаєте в масиві не існує
 
-const numbers = [1, 2, 3, 4];
+//індекс елемента вам може бути необхідний для видалення з масиву або для оновлення або для копіювання
+console.log(users.indexOf("Petro"));
 
-// отримання доступу до елементу масиву
+// indexOf
+for (let i = 0; i < users.length; i++) {
+  const element = users[i];
+  if (element.toLowerCase().trim() === "Artem".toLowerCase().trim()) {
+    console.log(i);
+    break;
+  } else {
+    console.log("-1");
+  }
+}
 
-// 1)назва масиву з яким ми хочемо взаємодіяти це numbers
-//2) після назви необхідно записати квадратні дужки
-// 3)необхідний індекс = 2
+const findElem = "Petro";
 
-console.log("ДО");
-console.log(numbers[2]);
+console.log(users.includes(findElem));
+// push - повертає число(кількість елементів масиву включаючи доданий)
+// push - додає будь-яку кількість елементів в кінець масиву
+console.log(users.push("Anton", "Tema2")); // довжина масиву
 
-// щоб замінити значення маєте записати нове значення після =
-//  = оператор присвоєння
-numbers[2] = 5;
-console.log("Після");
-console.log(numbers[2]);
+console.log(users);
