@@ -16,7 +16,7 @@ console.log(users.includes("Artem"));
 // includes
 for (let i = 0; i < users.length; i++) {
   const element = users[i];
-  if (element.toLowerCase().trim() === "artem".toLowerCase().trim()) {
+  if (element.toLowerCase().trim() === "Artem".toLowerCase().trim()) {
     console.log(true);
   }
 }
@@ -92,3 +92,22 @@ const index = users1.indexOf(findEl);
 console.log(users1.splice(index, 1));
 
 console.log(users1);
+
+// concat - метод який дозволяє обʼєднати декілька масивів
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [6, 7, 8, 9, 10];
+const arr4 = [11, 12, 13, 14, 15];
+
+// const arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const arr3 = arr1.concat(arr2, arr4);
+console.log(arr3);
+
+const testArr = [1, 2, 3, 4, 5];
+
+//splice() - метод повертає те що він вирізав
+const test = testArr.splice(0, 3);
+
+console.log(test);
+console.log(testArr);
