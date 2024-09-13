@@ -1,37 +1,64 @@
-// 1)Створити масив із 5-ти рядків. Вивести на екран кожен рядок з масиву, який містить більше 5-ти символів.
+const cards = [
+  "Карточка-1", //0
+  "Карточка-2", //1
+  "Карточка-3", //2
+  "Карточка-4",
+  "Карточка-5",
+];
 
-const strings = ["Hello", "world", "Мене", "звуть", "Артем"];
+//2 -індекс елемента який ми шукаємо
+// 1 - скільки елементів починаючи з цього індексу ми маємо видалити
 
-console.log(strings.join(" "));
+console.log(cards.splice(2, 1));
 
-// for - ключове слово
-// let i = 0; - лічильник;
-// i < strings.length - умова за якої масив припинить виконання
-// i++ - що буде відбуватись з лічильником після кожного виконання тіла циклу(ітерація)
-//{ } - тіло циклу
-for (let i = 0; i < strings.length; i++) {
-  const element = strings[i];
-  if (element.length < 5) {
-    continue;
-  }
-  console.log(element);
+console.log(cards);
+// оновлення
+cards.splice(0, 1, "Артем");
+
+console.log(cards);
+
+// Створити розмітку з формою з полями введення та кнопкою. При натисканні на кнопку перевіряти, чи введені дані правильно заповнені, якщо так, то перенаправляти на іншу сторінку, якщо ні — виводити повідомлення про помилку. Правильно заповнені дані: ім'я містить не менше 3 символів, email містить символ @ та крапку після неї, пароль містить не менше 6 символів.
+
+const button = document.getElementById("button");
+const email = document.getElementById("input2");
+const password = document.getElementById("input1");
+const name = document.getElementById("input3");
+const form = document.getElementById("form");
+//submit - подія відправки форми
+form.addEventListener("submit", onSubmit);
+
+function onSubmit(e) {
+  // Запобігання діям за замовчуванням
+  e.preventDefault();
 }
 
-// Якщо ви бачите перед собою масив варто його перебрати
+button.addEventListener("click", onClick);
 
-// 2)Створити масив з 10-ти чисел. Знайти та вивести на екран максимальне значення з масиву.
-// 3)Створити масив з 10-ти чисел. Знайти всі парні числа в масиві та вивести їх на екран.
+function onClick(params) {
+  // для того щоб отримати значення з текстового поля ми маємо використати властивість value
+  // ОТримання значення з поля email
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const input1Value = email.value;
 
-for (let i = 0; i < numbers.length; i++) {
-  const element = numbers[i];
-  // % - рахує остачу від ділення
-  if (element % 2 === 0) {
-    console.log(element);
+  // ОТримання значення з поля name
+  const input2Value = name.value;
+
+  // ОТримання значення з поля password
+  const input3Value = password.value;
+
+  if (input2Value.length >= 3) {
+    console.log("з імʼям все добре");
   }
-  // Зробити так,щоб виводилась 1
-  //   if (element % 3 === 0) {
-  //     console.log(element);
-  //   }
+
+  if (input3Value.length > 6) {
+    console.log("з паролем все добре");
+  }
+
+  if (input1Value.includes("@")) {
+    console.log("з емейлом все добре");
+  }
 }
+
+//При натисканні на кнопку -
+//перевіряти
+// введені дані правильно заповнені,
