@@ -1,5 +1,5 @@
 console.log(getSum(1, 2));
-
+console.log(ab(1, 3));
 // function - ключове слово яке повідомляє всьому що читає цей код,що ви ствоюєте функцію
 // getSum - назва вашої функції за якою в майбутньому ви будете її викликати
 // () - параметри функції це те що ми записуєм у круглі дужки коли створюємо нашу функцію(a,b - параметри яка наша функція має отримати ззовні -  це можуть бути текстові інпути, це будуть параметри які передаються при виклиці функції)
@@ -50,3 +50,22 @@ function calculator(a, b) {
 }
 
 console.log(calculator(1000, 2, 3, 1, 4, 22));
+
+// параметри функції = ()
+// це дані з зовнішнього коду необхідні для роботи функції
+//hoisting - подія всплиття коду
+
+// getMicrovawePowerPlusTime();
+
+// func declaration  - має hoisting(всплиття)
+function ab(a, b) {
+  return a + b;
+}
+
+const getMicrovawePowerPlusTime = function (power, time) {
+  return Number(power) + +time;
+  //return - оператор повернення який повертає результат функції у зовнішній код якщо його немає завжди буде повертатись undefined
+  // return;
+};
+
+console.log(getMicrovawePowerPlusTime(800, 60000));
