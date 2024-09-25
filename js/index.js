@@ -49,8 +49,41 @@ function filterNumbersArr(array) {
   return filterArr;
 }
 
+const strings = [
+  "A",
+  "W",
+  "W",
+  "W",
+  "W",
+  "W",
+  "E",
+  "E",
+  "E",
+  "E",
+  "E",
+  "S",
+  "O",
+  "M",
+  "E",
+];
+
+function stringsBuilder(array, filterFunc) {
+  const filteredArr = filterFunc(array);
+
+  let string = "";
+  for (let index = 0; index < filteredArr.length; index++) {
+    const element = filteredArr[index];
+    string += element;
+  }
+  return string + "E";
+}
+
+// console.log(object);
+console.log(stringsBuilder(strings, filterNumbersArr));
+
 // getSumOfUniqValuesArray - функція вищого порядку - бо вона отримує параметром функцію
 function getSumOfUniqValuesArray(array, filterFunc) {
+  // увесь процес фільтрації масиву він абстрогований
   const filteredArr = filterFunc(array);
 
   let sum = 0;
@@ -62,3 +95,61 @@ function getSumOfUniqValuesArray(array, filterFunc) {
 }
 
 console.log(getSumOfUniqValuesArray(numbers, filterNumbersArr));
+
+// greetings - функціональний вираз
+// message - параметр який ми очикуємо на прийом ;
+// CallBack - функція зворотнього виклику
+const greetings = function (message) {
+  console.log(message);
+};
+//highOrderFunc - функція вищого порядку(отримує параметром функцію)
+const highOrderFunc = function (callBack) {
+  const str = "We are awesome";
+  callBack(str);
+};
+// highOrderFunc() - виклик функції;
+highOrderFunc(greetings);
+
+// АНОНІМНА ФУНКЦІЯ
+
+() => {
+  const a = "a";
+  console.log(a);
+};
+
+//
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+document.body.addEventListener("click", () => {
+  document.body.style.backgroundColor = getRandomColor();
+});
+
+() => {
+  const a = "a";
+  console.log(a);
+};
+
+// IIFE (Immediately Invoked Function Expression)  - функція негайного виклику
+(() => {
+  console.log("2");
+})();
+
+const getSum = function (a, b) {
+  a + b;
+};
+
+console.log(getSum(1, 2));
+
+// у стрілку(=>) - вмонтований ретурн,тому якщо у вас один рядок коду то ви можете сміливо ретурн не записувати. Якщо у вас більше рядків коду то return все так же є обовʼязковим
+const getSumArrowFunc = (a, b) => {
+  return a + b;
+};
+
+console.log(getSumArrowFunc(5, 5));
