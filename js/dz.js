@@ -1,81 +1,49 @@
-// Напиши функцію logItems(array), яка отримує масив і використовує цикл for, який для кожного елемента масиву буде виводити в консоль повідомлення в форматі [номер елемента] - [значення елемента].
+// 1)Створіть функцію processArray(array, callback), яка приймає масив та функцію-колбек. Викличте processArray з різними масивами та функціями-колбеками, щоб виконати наступні операції:
 
-// Нумерація повинна починатися з 1. Наприклад, для першого елемента масиву['Mango', 'Poly', 'Ajax'] з індексом 0 буде виведено '1 - Mango', а для індексу 2 виведе '3 - Ajax'.
+// Порахувати суму всіх елементів масиву.
+// Знайти мінімальний елемент масиву.
+// Знайти максимальний елемент масиву.
+// Перепишіть колбек-функції на стрілки
 
-const logItems = function (array) {
-  // твій код
-  for (let index = 0; index < array.length; index++) {
-    // буде виводити в консоль повідомлення в форматі [номер елемента] - [значення елемента].
-
-    console.log(`[${index + 1}-${array[index]}]`);
-  }
+const processArray = (array, callback) => {};
+const getSum = function (arr) {
+  return arr.reduce((acc, curr) => acc + curr);
+};
+const getMin = function (arr) {
+  return Math.min(...arr);
+};
+const getMax = function (arr) {
+  return Math.max(...arr);
 };
 
-/*
- * Виклич функції для перевірки працездатності твоєї реалізації.
- */
-logItems(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]);
+// 2. Створіть функцію operate(a, b, callback), яка приймає два числа та колбек для виконання операції над ними. Використайте її для виконання наступних операцій:
 
-logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+// Додавання.
+// Віднімання.
+// Множення.
+// Ділення.
+// Перепишіть колбеки на стрілкові функції
 
-//
+const operate = (a, b, callback) => {};
 
-const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
-
-// проходити перевірку на довжину від 4 до 16-ти символів включно
-
-// властивість яка повертає довжину рядка - length
-// Створити розгалудження (if else)
-// Логічний оператор І
-// умова для нашого розгалудження довжину від 4 до 16-ти символів включно
-// Повернути в зовнішній код якщо умова справджується true якщо ні то false
-const isLoginValid = function (login) {
-  // if (login.length >= 4 && login.length <= 16) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-  // && - повертає true або false
-  return login.length >= 4 && login.length <= 16;
-};
-// бути унікальним, тобто бути відсутнім в масиві logins
-
-//allLogins - масив всіх логінів які вже є
-//login - логін який ввів користувач який хоче зареєструватись
-//якщо  login  присутній у масиві allLogins ми маємо повернути false
-//якщо  login  відсутній у масиві allLogins ми маємо повернути true
-
-const isLoginUnique = function (allLogins, login) {
-  // includes - повертає true або false залежно від того чи є елемент у масиві
-  // if (allLogins.includes(login)) {
-  //   return false;
-  // } else {
-  //   return true;
-  // }
-  // ! - логічний оператор НЕ (який обертає все навпаки)
-  return !allLogins.includes(login);
-};
-// якщо всі перевірки проїдені має ваш логін додати у масив користувачів
-const addLogin = function (allLogins, login) {
-  // Так виглядає виклик функції isLoginValid();
-  // Метод від оберененого (якщо наша функція повертає результат який нас не влаштовує ми завершуємо виконання функції (Guard close))
-  if (!isLoginValid(login)) {
-    // return - завершує виконання функції
-    return "Логін має бути від 4 до 16 буков";
-  }
-
-  if (!isLoginUnique(allLogins, login)) {
-    return "Такий логін вже є";
-  }
-
-  allLogins.push(login);
-  return "Ти гідний реєстрації";
-};
-
-/*
- * Виклич функції для перевірки працездатності твоєї реалізації.
- */
-console.log(addLogin(logins, "Ajax")); // 'Логін успішно доданий!'
-console.log(addLogin(logins, "robotGoogles")); // 'Такий логін вже використовується!'
-console.log(addLogin(logins, "Zod")); // 'Помилка! Логін повинен бути від 4 до 16 символів'
-console.log(addLogin(logins, "jqueryisextremelyfast")); // 'Помилка! Логін повинен бути від 4 до 16 символів'
+// Виклик функції з різними операціями
+console.log(
+  operate(10, 5, function (a, b) {
+    return a - b;
+  })
+); // Віднімання
+console.log(
+  operate(10, 5, function (a, b) {
+    return a + b;
+  })
+); // Додавання
+console.log(
+  operate(10, 5, function (a, b) {
+    return a * b;
+  })
+); // Множення
+console.log(
+  operate(10, 5, function (a, b) {
+    return a / b;
+  })
+); // Ділення

@@ -99,6 +99,7 @@ console.log(getSumOfUniqValuesArray(numbers, filterNumbersArr));
 // greetings - функціональний вираз
 // message - параметр який ми очикуємо на прийом ;
 // CallBack - функція зворотнього виклику
+
 const greetings = function (message) {
   console.log(message);
 };
@@ -110,8 +111,7 @@ const highOrderFunc = function (callBack) {
 // highOrderFunc() - виклик функції;
 highOrderFunc(greetings);
 
-// АНОНІМНА ФУНКЦІЯ
-
+// АНОНІМНА ФУНКЦІЯ () => {};
 () => {
   const a = "a";
   console.log(a);
@@ -153,3 +153,84 @@ const getSumArrowFunc = (a, b) => {
 };
 
 console.log(getSumArrowFunc(5, 5));
+
+// Arguments -  локальна зміна яка створюється тільки у декларованих функціях вміщує у себе усі передані аргументи
+
+function calculator() {
+  console.log(arguments);
+  console.log(arguments);
+}
+
+calculator(
+  1,
+  2,
+  34,
+  5,
+  6,
+  7,
+  8,
+  9,
+  567,
+  56,
+  456,
+  35,
+  345,
+  234,
+  234,
+  213,
+  12,
+  31,
+  23,
+  123,
+  12,
+  3
+);
+
+// const
+//параметри які ми очикуєм для роботи
+//  =>
+//
+const arrowFunc = (a, b, c) => a + b + c;
+const arrowFunck = () => a + b + c;
+const arrowFunckc = (x) => x + b + c;
+
+const expressionFunck = function (a, b, c) {
+  // return - повертаю результат роботи в зовнішній код
+  return a + b + c;
+};
+
+const result = () => 1 + 2;
+
+console.log(result());
+//  ...rest - оператор який може зібрать усі параметри функції в один масив
+// ...arguments - зібрали усі аргументи функції у один єдиний масив параметрів для того щоб опрацювати нескінченний потік аргументів
+const calculatorr = (...arguments) => {
+  console.log(arguments);
+};
+
+calculatorr(
+  1,
+  2,
+  3,
+  4,
+  5,
+  45,
+  6,
+  456,
+  45,
+  63,
+  44,
+  234,
+  12,
+  31,
+  23,
+  1,
+  34,
+  5346,
+  457,
+  6,
+  75,
+  8,
+  57,
+  6
+);
