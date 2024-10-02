@@ -204,8 +204,8 @@ const result = () => 1 + 2;
 console.log(result());
 //  ...rest - оператор який може зібрать усі параметри функції в один масив
 // ...arguments - зібрали усі аргументи функції у один єдиний масив параметрів для того щоб опрацювати нескінченний потік аргументів
-const calculatorr = (...arguments) => {
-  console.log(arguments);
+const calculatorr = (...args) => {
+  console.log(args);
 };
 
 calculatorr(
