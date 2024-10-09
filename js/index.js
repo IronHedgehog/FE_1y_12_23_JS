@@ -1,81 +1,51 @@
-// для того щоб створити обʼєкт ми маємо записати фігурні дужки
-// ключ-характеристика яку ви описуєте
-//всередині обʼєкту все записується парами (ключ значення)
+const bankAccount = {
+  // ключ -string : значення - будь-яким типом даних
+  ownerName: "Artem",
+  accountNumber: "0123456789",
+  balance: "10000000$",
+  tax: "1$",
 
-const petro = {
-  name: "Petro",
-  age: 20,
-  height: 179,
-  weight: 73,
-};
-
-// {} - літерал обʼєкту(всередені фігурних дужок ми з вами розписуєм властивості та занчення обʼєкту)
-
-console.log({});
-const mouse = {
-  gameMode: true,
-  material: "metal",
-  sideButtons: true,
-  dpi: [200, 400, 600, 800, 1000],
-};
-
-const airPods = {
-  // В обʼєкт завжди записуєм пари ключ(властивість) значення
-  volume: 100,
-};
-
-const laptop = {
-  // Властивість
-  _1: "asd",
-  processor: "intel",
-  GPU: "NVIDIA",
-  RAM: "",
-  power: 100,
-  //method (функція яка записана як значення ключа)
-  on: function (power) {
-    if (power > 0) {
-      console.log("Ноутбук стартує");
-    } else {
-      console.log("Ноут не стартує");
-    }
+  deposit: function (money) {
+    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
+    // this - контекстом
+    // this  в обʼєктах використовувати замість назви обʼєкта в нашому випадку "bankAccount"
+    this.balance =
+      Number.parseFloat(this.balance) +
+      Number.parseFloat(money) -
+      Number.parseFloat(this.tax) +
+      "$";
+    console.log(`Your balance ${this.balance} - tax ${this.tax}`);
   },
+  withdraw: function (money) {
+    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
+    this.balance =
+      Number.parseFloat(this.balance) - Number.parseFloat(money) + "$";
+    console.log(`Your balance ${this.balance}`);
+  },
+
+  // В методах назвою функції буде ключ
 };
 
-// щоб отримати доступ до властиаості та її значення ви маєте звернутись по імені до обʼєкту та через крапку обрати ключ який вам необхіжний
+// для перебору обʼєкту на разі будемо використоввати цикли
 
-laptop.on(laptop.power);
-// старий синтаксис для старих методів
-console.log(laptop["_1"]);
-// щоб створити властивість обʼєкту поза обʼєктом ми маємо звернутись до властивості якої не існує  ( .ssd) та присвоїти значення через = ("DDR5")
-laptop.ssd = "DDR5";
-console.log(laptop);
-// видалення властивості обʼєкту
-delete laptop.ssd;
+// for (let index = 0; index < bankAccount.length; index++) {
+//   console.log(index);
+// }
 
-console.log(laptop.battery);
-console.log(laptop);
+// for (const element of bankAccount) {
+//   console.log(element);
+// }
 
-const form = document.getElementById("form");
+for (const key in bankAccount) {
+  // console.log(typeof key);
+  // console.log(bankAccount[key]);
+}
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+const objectKeys = Object.keys(bankAccount);
+console.log(objectKeys);
 
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
-  const confirmPassword = form.elements.confirm.value;
+const objectValues = Object.values(bankAccount);
+console.log(objectValues);
 
-  const signUp = {
-    // Створиться ключ з назвою вашої змінної а значення змінної підставиться як значення ключа
-    email,
-    password,
-    confirmPassword,
-  };
-
-  console.log(signUp);
-});
-
-const signUp = {
-  email: "Petro@gmail.com",
-  password: "qwerty12345",
-  confirmPassword: true,
-};
+const objectEntries = Object.entries(bankAccount);
+console.log(objectEntries);
