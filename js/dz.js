@@ -1,80 +1,38 @@
-// 1)Створіть функцію processArray(array, callback), яка приймає масив та функцію-колбек. Викличте processArray з різними масивами та функціями-колбеками, щоб виконати наступні операції:
+// Створіть об'єкт "bankAccount" з властивостями "ownerName", "accountNumber", "balance". Додайте до об'єкту метод "deposit", який дозволяє додавати гроші на рахунок, та метод "withdraw", який дозволяє знімати гроші з рахунку. Використайте cofirm() щоб поповнити рахунок або отримати готівку та prompt() щоб дізнатися сумму. Методи повинні спрацьовувати при натисканні на кнопки “поповнити рахунок” та отримати ‘готівку’ відповідно. Після проведення операції виводити повідомлення про залишок на рахунку.
 
-// Порахувати суму всіх елементів масиву.
-// Знайти мінімальний елемент масиву.
-// Знайти максимальний елемент масиву.
-// Перепишіть колбек-функції на стрілки
+// 1) Створіть об'єкт "bankAccount"
+//  2) У ньому створити властивості "ownerName", "accountNumber", "balance".
+// 3) Додати метод  "deposit", - метод - це якась дія
+// 4)"withdraw"
+// 5) clg
+//  6)
 
-// Функція вищого порядку
-const processArray = (array, callback) => {
-  return callback(array);
+const bankAccount = {
+  // ключ -string : значення - будь-яким типом даних
+  ownerName: "Artem",
+  accountNumber: "0123456789",
+  balance: "10000000$",
+
+  deposit: function (money) {
+    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
+    // this - контекстом
+    // this  в обʼєктах використовувати замість назви обʼєкта в нашому випадку "bankAccount"
+    this.balance =
+      Number.parseFloat(this.balance) + Number.parseFloat(money) + "$";
+    console.log(`Your balance ${this.balance}`);
+  },
+  withdraw: function (money) {
+    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
+    this.balance =
+      Number.parseFloat(this.balance) - Number.parseFloat(money) + "$";
+    console.log(`Your balance ${this.balance}`);
+  },
+
+  // В методах назвою функції буде ключ
 };
-
-// callback
-// arrowFunc  - Короткий синтаксис
-// Не явний return
-// const getSum = function (arr) {
-//   return arr.reduce((acc, curr) => acc + curr);
-// };
-//  => = return
-// function declaration
-// function declaration - мають hoisting (доступні всюди в області бачення)
-function name(a, b) {
-  return a + b;
-}
-
-// function expression
-const func = function (a, b, c) {
-  return a + b + c;
-};
-// arrow func
-const funcArr = (a, b, c) => a + b + c;
-
-const getSum = (arr) => arr.reduce((acc, curr) => acc + curr); // Відбувається додавання значень масиву
-
-// callback
-const getMin = function (arr) {
-  return Math.min(...arr);
-};
-// callback
-const getMax = function (arr) {
-  return Math.max(...arr);
-};
-// Щоб викликати функцію нам необхідно її імʼя
-// () - відпрацюй, будь ласка.
-// в круглі дужечк у нас є можливість записати через кому дані які ми бажаєм відпрацювати
-console.log(processArray([7, 3, 9, 1, 0, 123, 7, -50], getSum));
-console.log(processArray([7, 3, 9, 1, 0, 123, 7, -50], getMin));
-console.log(processArray([7, 3, 9, 1, 0, 123, 7, -50], getMax));
-
-// 2. Створіть функцію operate(a, b, callback), яка приймає два числа та колбек для виконання операції над ними. Використайте її для виконання наступних операцій:
-
-// Додавання.
-// Віднімання.
-// Множення.
-// Ділення.
-// Перепишіть колбеки на стрілкові функції
-
-const operate = (a, b, callback) => {};
-
-// Виклик функції з різними операціями
-console.log(
-  operate(10, 5, function (a, b) {
-    return a - b;
-  })
-); // Віднімання
-console.log(
-  operate(10, 5, function (a, b) {
-    return a + b;
-  })
-); // Додавання
-console.log(
-  operate(10, 5, function (a, b) {
-    return a * b;
-  })
-); // Множення
-console.log(
-  operate(10, 5, function (a, b) {
-    return a / b;
-  })
-); // Ділення
+// .
+// ["deposit"]
+bankAccount.deposit("1000$");
+// console.log(bankAccount["balance"]);
+bankAccount.withdraw("10000$");
+// console.log(bankAccount.balance);
