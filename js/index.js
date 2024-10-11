@@ -42,10 +42,26 @@ for (const key in bankAccount) {
 }
 
 const objectKeys = Object.keys(bankAccount);
-console.log(objectKeys);
+// console.log(objectKeys);
 
 const objectValues = Object.values(bankAccount);
-console.log(objectValues);
+// console.log(objectValues);
 
 const objectEntries = Object.entries(bankAccount);
-console.log(objectEntries);
+// console.log(objectEntries);
+
+const arr = [1, 2, 3, 4, 5, 55, 6, 7, 8, 9];
+
+console.log(Math.max(...arr)); // 1, 2, 3, 4, 5, 55, 6, 7, 8, 9
+
+const arr1 = [...arr];
+const num1 = 5;
+const num2 = 5;
+// ПРимітивні типи порівнюються за значенням
+console.log(num1 === num2); // true
+
+// масиви відносяться до складного типу даних
+// складні типи даних копіюються за посиланням
+// При порівнянні складних типів даних порівнюються адреси
+
+console.log(arr === arr1); // false
