@@ -52,7 +52,10 @@ const objectEntries = Object.entries(bankAccount);
 
 const arr = [1, 2, 3, 4, 5, 55, 6, 7, 8, 9];
 
+function asd(params) {}
+
 console.log(Math.max(...arr)); // 1, 2, 3, 4, 5, 55, 6, 7, 8, 9
+console.log(Math.min(...arr)); // NAN
 
 const arr1 = [...arr];
 const num1 = 5;
@@ -65,3 +68,36 @@ console.log(num1 === num2); // true
 // При порівнянні складних типів даних порівнюються адреси
 
 console.log(arr === arr1); // false
+
+//  deposit: function(money) {
+//         this.balance = Number(this.balance) + Number(money);
+//         console.log('Your balance: $' + this.balance);
+//     },
+
+const arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const arr4 = arr3;
+
+console.log(arr4);
+// Зелена 1 === Зелена 1
+console.log(arr3 === arr4);
+
+const obj1 = {
+  a: 5,
+  c: 1,
+};
+
+const obj2 = {
+  a: 1,
+  b: 10,
+};
+
+const obj3 = {
+  ...obj2,
+  ...obj1,
+};
+
+// obj3{a:1 , b:10} -  ...obj2
+// obj3{a:5,b:10,c:1} -  ...obj1,
+// При копіюванні якщо властивості повторюються вони перезаписуються
+
+console.log(obj3);
