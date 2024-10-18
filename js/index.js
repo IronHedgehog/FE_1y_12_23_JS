@@ -1,103 +1,97 @@
-const bankAccount = {
-  // ключ -string : значення - будь-яким типом даних
-  ownerName: "Artem",
-  accountNumber: "0123456789",
-  balance: "10000000$",
-  tax: "1$",
+const string = "string";
+const number = 5;
+const number1 = 5;
+console.log(number === number1); // true
+const nulll = null;
+const undefinedd = undefined;
+const bollean = true;
 
-  deposit: function (money) {
-    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
-    // this - контекстом
-    // this  в обʼєктах використовувати замість назви обʼєкта в нашому випадку "bankAccount"
-    this.balance =
-      Number.parseFloat(this.balance) +
-      Number.parseFloat(money) -
-      Number.parseFloat(this.tax) +
-      "$";
-    console.log(`Your balance ${this.balance} - tax ${this.tax}`);
-  },
-  withdraw: function (money) {
-    // this В ОБ'ЄКТАХ є самим обʼєктом в якому ви його використовуєте
-    this.balance =
-      Number.parseFloat(this.balance) - Number.parseFloat(money) + "$";
-    console.log(`Your balance ${this.balance}`);
-  },
-
-  // В методах назвою функції буде ключ
-};
-
-// для перебору обʼєкту на разі будемо використоввати цикли
-
-// for (let index = 0; index < bankAccount.length; index++) {
-//   console.log(index);
-// }
-
-// for (const element of bankAccount) {
-//   console.log(element);
-// }
-
-for (const key in bankAccount) {
-  // console.log(typeof key);
-  // console.log(bankAccount[key]);
-}
-
-const objectKeys = Object.keys(bankAccount);
-// console.log(objectKeys);
-
-const objectValues = Object.values(bankAccount);
-// console.log(objectValues);
-
-const objectEntries = Object.entries(bankAccount);
-// console.log(objectEntries);
-
-const arr = [1, 2, 3, 4, 5, 55, 6, 7, 8, 9];
-
-function asd(params) {}
-
-console.log(Math.max(...arr)); // 1, 2, 3, 4, 5, 55, 6, 7, 8, 9
-console.log(Math.min(...arr)); // NAN
-
-const arr1 = [...arr];
-const num1 = 5;
-const num2 = 5;
-// ПРимітивні типи порівнюються за значенням
-console.log(num1 === num2); // true
-
-// масиви відносяться до складного типу даних
-// складні типи даних копіюються за посиланням
-// При порівнянні складних типів даних порівнюються адреси
-
-console.log(arr === arr1); // false
-
-//  deposit: function(money) {
-//         this.balance = Number(this.balance) + Number(money);
-//         console.log('Your balance: $' + this.balance);
-//     },
-
-const arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-const arr4 = arr3;
-
-console.log(arr4);
-// Зелена 1 === Зелена 1
-console.log(arr3 === arr4);
+// примітивні типи данних (1: зберігаються та порівнюються за значенням)
 
 const obj1 = {
-  a: 5,
-  c: 1,
+  a: 10,
 };
 
 const obj2 = {
-  a: 1,
-  b: 10,
+  a: 10,
 };
 
-const obj3 = {
-  ...obj2,
-  ...obj1,
+const obj3 = obj1;
+
+console.log(obj3 === obj1); // true,true,true
+
+// обʼєкти, масиви, функції, - це складний тип даних object (1: порівнюються за посиланням в памʼяті)
+
+console.log(obj1 === obj2); //true , false ,false, false
+
+// Object.keys(); // дозволяє отримати у вигляді масиву всі ключі обʼєкта
+// Object.values();
+// Object.entries();
+// for in - створений тільки для перебору властивостей обʼєктів отримує ключі обʼєкта та за ними може виводити значення
+for (const key in obj1) {
+  const element = obj1[key];
+  console.log(element);
+}
+
+// ----------------------------------------ДЕСТРУКТУРИЗАЦІЯ ------------
+
+const books = [
+  {
+    author: "Artem",
+    year: "2024",
+    title: "Book",
+    description: "qweasdzxc",
+    genre: "fantasy",
+  },
+  {
+    author: "Artem",
+    year: "2024",
+    title: "Book",
+    description: "qweasdzxc",
+    genre: "romance",
+  },
+  {
+    author: "Artem",
+    year: "2024",
+    title: "Book",
+    description: "qweasdzxc",
+    genre: "horor",
+  },
+  {
+    author: "Artem",
+    year: "2024",
+    title: "Book",
+    description: "qweasdzxc",
+    genre: "adventure",
+  },
+];
+
+function filterBooksByGenre(books, genre) {
+  const filteredArr = [];
+  // [] - ви маєте його перебрати (цикли, методами масиву)
+  for (let index = 0; index < books.length; index++) {
+    const element = books[index];
+    //  const
+    // {},[] - маємо вписати які властивості ми хочемо
+    //= element; - хочемо розпакувати з обʼєкта element
+    //: - вказати нове імʼя змінної за якою буде сберігатися жанр книги
+    const { genre: bookGenre } = element;
+    if (bookGenre === genre) {
+      filteredArr.push(element);
+    }
+  }
+  return filteredArr;
+}
+
+console.log(filterBooksByGenre(books, "adventure"));
+
+const human = {
+  name: "Artem",
+  height: 200,
+  weight: 100,
 };
+const weight = 101;
 
-// obj3{a:1 , b:10} -  ...obj2
-// obj3{a:5,b:10,c:1} -  ...obj1,
-// При копіюванні якщо властивості повторюються вони перезаписуються
+const { weight: humanWeight } = human;
 
-console.log(obj3);
+console.log(humanWeight);
