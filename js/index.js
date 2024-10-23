@@ -1,97 +1,70 @@
-const string = "string";
-const number = 5;
-const number1 = 5;
-console.log(number === number1); // true
-const nulll = null;
-const undefinedd = undefined;
-const bollean = true;
+const arr1 = [1, 23];
 
-// примітивні типи данних (1: зберігаються та порівнюються за значенням)
+const min = Math.min(...arr1);
+console.log(min);
 
-const obj1 = {
-  a: 10,
+const a = {
+  a: 5,
+  y: 10,
 };
 
-const obj2 = {
-  a: 10,
+const b = {
+  a: 1,
+  c: 2,
 };
 
-const obj3 = obj1;
+const c = {
+  ...b, // {a: 1, c:2}
+  ...a, // {a:5 , c:2 , y:10}
+};
 
-console.log(obj3 === obj1); // true,true,true
+console.log(c);
 
-// обʼєкти, масиви, функції, - це складний тип даних object (1: порівнюються за посиланням в памʼяті)
+const arr2 = [10, 2, "asd", 3, 4, "Привіт"];
+// Impera
+function takeNumbers(array) {
+  const numbersFromArray = [];
 
-console.log(obj1 === obj2); //true , false ,false, false
-
-// Object.keys(); // дозволяє отримати у вигляді масиву всі ключі обʼєкта
-// Object.values();
-// Object.entries();
-// for in - створений тільки для перебору властивостей обʼєктів отримує ключі обʼєкта та за ними може виводити значення
-for (const key in obj1) {
-  const element = obj1[key];
-  console.log(element);
-}
-
-// ----------------------------------------ДЕСТРУКТУРИЗАЦІЯ ------------
-
-const books = [
-  {
-    author: "Artem",
-    year: "2024",
-    title: "Book",
-    description: "qweasdzxc",
-    genre: "fantasy",
-  },
-  {
-    author: "Artem",
-    year: "2024",
-    title: "Book",
-    description: "qweasdzxc",
-    genre: "romance",
-  },
-  {
-    author: "Artem",
-    year: "2024",
-    title: "Book",
-    description: "qweasdzxc",
-    genre: "horor",
-  },
-  {
-    author: "Artem",
-    year: "2024",
-    title: "Book",
-    description: "qweasdzxc",
-    genre: "adventure",
-  },
-];
-
-function filterBooksByGenre(books, genre) {
-  const filteredArr = [];
-  // [] - ви маєте його перебрати (цикли, методами масиву)
-  for (let index = 0; index < books.length; index++) {
-    const element = books[index];
-    //  const
-    // {},[] - маємо вписати які властивості ми хочемо
-    //= element; - хочемо розпакувати з обʼєкта element
-    //: - вказати нове імʼя змінної за якою буде сберігатися жанр книги
-    const { genre: bookGenre } = element;
-    if (bookGenre === genre) {
-      filteredArr.push(element);
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    // typeof - визначає тип даних
+    console.log(typeof element);
+    if (typeof element === "number") {
+      numbersFromArray.push(element);
     }
   }
-  return filteredArr;
+
+  return numbersFromArray;
 }
 
-console.log(filterBooksByGenre(books, "adventure"));
+console.log(takeNumbers(arr2));
 
-const human = {
-  name: "Artem",
-  height: 200,
-  weight: 100,
-};
-const weight = 101;
+//Declaration code
 
-const { weight: humanWeight } = human;
+function takeNumbersDeclaration(arr) {
+  return arr
+    .filter((value) => typeof value === "number")
+    .filter((value) => value < 3);
+}
 
-console.log(humanWeight);
+console.log(takeNumbersDeclaration(arr2));
+
+const arr3 = [1, 23, 4, 5, 6, 78];
+
+function multiply(array) {
+  const miltiplyArr = [];
+
+  for (let index = 0; index < array.length; index++) {
+    miltiplyArr.push((array[index] *= array[index]));
+  }
+  return miltiplyArr;
+}
+// multiply(arr3);
+console.log(arr3);
+
+function multiplyDeclaration(array) {
+  return array.map((value) => (value *= value));
+}
+
+console.log(multiplyDeclaration(arr3));
+console.log(arr3);
