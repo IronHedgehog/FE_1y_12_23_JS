@@ -52,19 +52,49 @@ console.log(takeNumbersDeclaration(arr2));
 const arr3 = [1, 23, 4, 5, 6, 78];
 
 function multiply(array) {
+  const arrCopy = [...array];
   const miltiplyArr = [];
 
-  for (let index = 0; index < array.length; index++) {
-    miltiplyArr.push((array[index] *= array[index]));
+  for (let index = 0; index < arrCopy.length; index++) {
+    miltiplyArr.push((arrCopy[index] *= arrCopy[index]));
   }
   return miltiplyArr;
 }
-// multiply(arr3);
+console.log(multiply(arr3));
 console.log(arr3);
 
 function multiplyDeclaration(array) {
-  return array.map((value) => (value *= value));
+  return array.map((number, index, array) => {
+    console.log(array);
+    return (number *= number);
+  });
 }
 
 console.log(multiplyDeclaration(arr3));
 console.log(arr3);
+
+// forEach === for
+
+console.log(arr3.forEach((value) => (value *= value)));
+
+console.log(arr3.map((value) => (value *= value)));
+
+const users = [
+  { name: "Artme", age: 30, isActive: true },
+  { name: "asd", age: 25, isActive: false },
+  { name: "qwe", age: 20, isActive: true },
+  { name: "zxc", age: 15, isActive: false },
+  { name: "dfg", age: 10, isActive: true },
+];
+
+// Кожен метод масиву окрім forEach повертає масив
+console.log(
+  users.filter((user) => user.isActive).map((activeUser) => activeUser.name)
+);
+
+console.log(users.find((user) => user.age === 10));
+// { name: "Artme", age: 30, isActive: true } - true
+// { name: "asd", age: 25, isActive: false } - false
+console.log(users.every((user) => user.age >= 30));
+// { name: "Artme", age: 30, isActive: true } - true
+console.log(users.some((user) => user.age >= 30));
