@@ -1,120 +1,3 @@
-const arr1 = [1, 23];
-
-const min = Math.min(...arr1);
-console.log(min);
-
-const a = {
-  a: 5,
-  y: 10,
-};
-
-const b = {
-  a: 1,
-  c: 2,
-};
-
-const c = {
-  ...b, // {a: 1, c:2}
-  ...a, // {a:5 , c:2 , y:10}
-};
-
-console.log(c);
-
-const arr2 = [10, 2, "asd", 3, 4, "Привіт"];
-// Impera
-function takeNumbers(array) {
-  const numbersFromArray = [];
-
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    // typeof - визначає тип даних
-    console.log(typeof element);
-    if (typeof element === "number") {
-      numbersFromArray.push(element);
-    }
-  }
-
-  return numbersFromArray;
-}
-
-console.log(takeNumbers(arr2));
-
-//Declaration code
-
-function takeNumbersDeclaration(arr) {
-  return arr
-    .filter((value) => typeof value === "number")
-    .filter((value) => value < 3);
-}
-
-console.log(takeNumbersDeclaration(arr2));
-
-const arr3 = [1, 23, 4, 5, 6, 78];
-
-function multiply(array) {
-  const arrCopy = [...array];
-  const miltiplyArr = [];
-
-  for (let index = 0; index < arrCopy.length; index++) {
-    miltiplyArr.push((arrCopy[index] *= arrCopy[index]));
-  }
-  return miltiplyArr;
-}
-console.log(multiply(arr3));
-console.log(arr3);
-
-function multiplyDeclaration(array) {
-  return array.map((number, index, array) => {
-    console.log(array);
-    return (number *= number);
-  });
-}
-
-console.log(multiplyDeclaration(arr3));
-console.log(arr3);
-
-// forEach === for
-
-console.log(arr3.forEach((value) => (value *= value)));
-
-console.log(arr3.map((value) => (value *= value)));
-
-const users = [
-  { name: "Artme", age: 30, isActive: true },
-  { name: "asd", age: 25, isActive: false },
-  { name: "qwe", age: 20, isActive: true },
-  { name: "zxc", age: 15, isActive: false },
-  { name: "dfg", age: 10, isActive: true },
-];
-
-// Кожен метод масиву окрім forEach повертає масив
-console.log(
-  users.filter((user) => user.isActive).map((activeUser) => activeUser.name)
-);
-
-console.log(users.find((user) => user.age === 10));
-// { name: "Artme", age: 30, isActive: true } - true
-// { name: "asd", age: 25, isActive: false } - false
-console.log(users.every((user) => user.age >= 30));
-// { name: "Artme", age: 30, isActive: true } - true
-console.log(users.some((user) => user.age >= 30));
-
-// map - повертає масив тієж довжини як масив який перебираєте
-
-const arr4 = [1, 23, 45, 6, 8, 8];
-
-const mapp = arr4.map((number) => {
-  return number;
-});
-
-console.log(mapp);
-
-// filter жодного елементу не знайдено
-
-const filterArr = arr4.filter((number) => number > 50);
-
-console.log(filterArr);
-
 const userss = [
   {
     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -202,14 +85,42 @@ const userss = [
   },
 ];
 
-const getUserNames = (users) => {
-  // const userNames = users.map((user) => {
-  //   return user.name;
-  // });
-  // return userNames;
+// let totalbalanc = 0;
+// userss.forEach((user) => {
+//   totalbalanc += user.balance;
+// });
+// console.log(totalbalanc);
 
-  return users.map((user) => user.name);
-};
+const totalBalance = userss.reduce((acc, user) => (acc += user.balance), 0);
 
-console.log(getUserNames(userss));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+console.log(totalBalance);
+
+const maleg = userss.filter((user) => {
+  return user.gender === "male";
+});
+console.log(maleg);
+
+const males = userss.reduce((acc, user) => {
+  if (user.gender === "male") {
+    acc.push(user);
+  }
+  return acc;
+}, []);
+
+const arrNumbers = [2, 10, 3, 15, 1];
+
+const alphabet = ["a", "c", "B"];
+
+console.log(
+  alphabet.sort((a, b) => {
+    return b.localeCompare(a);
+  })
+);
+
+// console.log(
+//   alphabet.sort((a, b) => {
+//     return b - a;
+//   })
+// );
+
+console.log(userss.map((user) => user).sort((a, b) => b.age - a.age));
