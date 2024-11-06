@@ -124,3 +124,23 @@ console.log(
 // );
 
 console.log(userss.map((user) => user).sort((a, b) => b.age - a.age));
+// Як можна скопіювати масив, щоб не змінювати оригінальний?
+
+const array15 = [-1, 22, 11, 44, 15];
+
+const array16 = [...array15]; // 1,2,3,4,5
+
+const array17 = array15.slice();
+
+const [first, second, ...others] = array15;
+
+console.log(array15);
+console.log(array16);
+console.log(array17);
+console.log(first);
+console.log(second);
+console.log(others);
+// SORT - мотує початковий масив
+
+console.log(array15.slice().sort());
+console.log(array15);
