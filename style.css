@@ -1,0 +1,17 @@
+/* Селектор класу */
+.list {
+}
+/* # - id */
+#ul {
+  background-color: black;
+}
+
+.input {
+  display: block;
+  background-color: yellow;
+}
+
+.wrong-input {
+  display: block;
+  background-color: red;
+}
