@@ -1,3 +1,10 @@
+// 0,"",NaN,null, undefined, false = falsy
+// Будь шо інше = trusy
+
+if (0) {
+  console.log("Hello!");
+}
+
 const ul = document.querySelector("#categories");
 
 // ul.addEventListener("click", onClick);
