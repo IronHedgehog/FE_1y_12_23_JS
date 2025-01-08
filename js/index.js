@@ -11,9 +11,11 @@ parent.addEventListener("click", (e) => {
   console.log("Parent click");
 });
 child.addEventListener("click", (e) => {
+  e.stopPropagation(); // блокує вспливання події
   console.log("Child click");
 });
 third.addEventListener("click", (e) => {
+  e.stopImmediatePropagation(); // Блокує обробники події на цьому елемнті
   console.log("Third click");
 });
 
@@ -46,3 +48,44 @@ buttonList.addEventListener("click", (e) => {
 // button.addEventListener("click", (e) => {
 //   console.log("Ти клацнув на кнопку!");
 // });
+
+const colorPalette = document.querySelector(".color-palette");
+const selectedColor = document.querySelector(".selected-color");
+
+colorPalette.addEventListener("click", onClickPalletButton);
+
+function onClickPalletButton(e) {
+  if (e.target.nodeName !== "BUTTON") return;
+  console.log(e.target.textContent);
+  selectedColor.textContent = e.target.dataset.color;
+  selectedColor.style.backgroundColor = e.target.dataset.color;
+}
+
+function createColorPalette() {
+  const buttons = [];
+  for (let i = 0; i < 100; i++) {
+    const color = getRandomColor();
+    const button = document.createElement("button");
+    // button.textContent = color;
+    button.dataset.color = color;
+    button.style.backgroundColor = color;
+    button.classList.add("item");
+    button.type = "button";
+    buttons.push(button);
+  }
+  colorPalette.append(...buttons);
+}
+
+createColorPalette();
+
+console.log(colorPalette);
+
+function getRandomColor() {
+  return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+}
+
+function getRandomHex() {
+  return Math.round(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+}
