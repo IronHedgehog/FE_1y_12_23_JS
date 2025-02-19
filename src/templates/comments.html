@@ -1,0 +1,15 @@
+<template id="temp">
+  <section>
+    <h2>comments</h2>
+
+    <ul>
+      {{#each comments}}
+      <li>
+        <p>{{this.name}}</p>
+        <p>{{this.email}}</p>
+        <p>{{this.body}}</p>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</template>

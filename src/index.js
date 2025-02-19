@@ -1,11 +1,24 @@
-const { getSum, printText } = require('./js/function');
+import Handlebars from 'handlebars';
+import { comments } from './js/coments';
 
-import Car from './js/defaultExport';
-import { helloWorld, lux } from './js/ESModule';
+const template = document.querySelector('#template').innerHTML.trim();
+const newTemplate = document.getElementById('temp').innerHTML.trim();
 
-console.log(getSum(1, 2, 3));
-printText('Hello World');
+const object = {
+  title: 'qweqwe',
+  text: 'asdasd',
+};
 
-helloWorld();
-lux();
-console.log(new Car());
+console.log(template);
+
+const shablon = Handlebars.compile(template);
+console.log(shablon(object));
+
+document.body.insertAdjacentHTML('beforeend', shablon(object));
+
+const newShablon = Handlebars.compile(newTemplate);
+
+document.body.insertAdjacentHTML(
+  'beforeend',
+  newShablon({ comments: comments })
+);
