@@ -1,48 +1,34 @@
-// import { comments } from './js/coments';
-import Handlebars from 'handlebars';
-import { data } from './js/data';
-import { heroes } from './js/heroes';
+const book = {
+  title: 'title',
+  description: 'description',
+  author: 'Author',
+};
 
-// const template = document.querySelector('#template').innerHTML.trim();
-// const newTemplate = document.getElementById('temp').innerHTML.trim();
+const array = [1, 2, 3, 4, 5];
 
-// const object = {
-//   title: 'qweqwe',
-//   text: 'asdasd',
-// };
+console.log('book', book);
 
-// console.log(template);
+const jsonBook = JSON.stringify(book);
 
-// const shablon = Handlebars.compile(template);
-// console.log(shablon(object));
+console.log('json', typeof jsonBook);
+console.log('json', jsonBook);
 
-// document.body.insertAdjacentHTML('beforeend', shablon(object));
+const bookAfterStringify = JSON.parse(jsonBook);
 
-// const newShablon = Handlebars.compile(newTemplate);
+console.log(bookAfterStringify);
 
-// document.body.insertAdjacentHTML(
-//   'beforeend',
-//   newShablon({ comments: comments })
-// );
+const keyForBook = 'BookKey';
 
-const template = document.getElementById('data').innerHTML.trim();
+localStorage.setItem(keyForBook, JSON.stringify(book));
 
-console.log(template);
+const bookFromLocalStorage = localStorage.getItem(keyForBook);
 
-const dataTemplate = Handlebars.compile(template);
+const KEY_FOR_ARRAY = 'Array';
 
-console.log(dataTemplate);
-console.log(data);
-console.log(dataTemplate({ data: data }));
+localStorage.setItem(KEY_FOR_ARRAY, JSON.stringify(array));
 
-// document.body.insertAdjacentHTML('beforeend', dataTemplate({ data: data }));
-
-const heroesTempalte = document.getElementById('heroes').innerHTML.trim();
-
-console.log(heroesTempalte);
-
-const heroesShablon = Handlebars.compile(heroesTempalte);
-console.log(heroes);
-console.log(heroesShablon({ heroes }));
-
-document.body.insertAdjacentHTML('beforeend', heroesShablon({ heroes }));
+console.log(JSON.parse(bookFromLocalStorage));
+// removeItem - видаляє одне поле за ключем
+// localStorage.removeItem(keyForBook);
+// clear - повністю очіщує localStorage
+localStorage.clear();
