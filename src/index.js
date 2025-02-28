@@ -1,34 +1,44 @@
-const book = {
-  title: 'title',
-  description: 'description',
-  author: 'Author',
-};
+// import { loadFromLocalStorage, save } from './js/localStorageModule';
 
-const array = [1, 2, 3, 4, 5];
+// const book = {
+//   title: 'title',
+//   description: 'description',
+//   author: 'Author',
+// };
 
-console.log('book', book);
+// const array = [1, 2, 3, 4, 5];
 
-const jsonBook = JSON.stringify(book);
+// console.log('book', book);
 
-console.log('json', typeof jsonBook);
-console.log('json', jsonBook);
+// const jsonBook = JSON.stringify(book);
 
-const bookAfterStringify = JSON.parse(jsonBook);
+// console.log('json', typeof jsonBook);
+// console.log('json', jsonBook);
 
-console.log(bookAfterStringify);
+// //Json.parse() - метод який перетворює строку назад на ті дані які ви зберігали
+// const bookAfterStringify = JSON.parse(jsonBook);
 
-const keyForBook = 'BookKey';
+// console.log(bookAfterStringify);
 
-localStorage.setItem(keyForBook, JSON.stringify(book));
+// const keyForBook = 'BookKey';
 
-const bookFromLocalStorage = localStorage.getItem(keyForBook);
+// localStorage.setItem(keyForBook, JSON.stringify(book));
 
-const KEY_FOR_ARRAY = 'Array';
+// const bookFromLocalStorage = localStorage.getItem(keyForBook);
 
-localStorage.setItem(KEY_FOR_ARRAY, JSON.stringify(array));
+// const KEY_FOR_ARRAY = 'Array';
 
-console.log(JSON.parse(bookFromLocalStorage));
+// localStorage.setItem(KEY_FOR_ARRAY, JSON.stringify(array));
+
+// console.log(JSON.parse(bookFromLocalStorage));
 // removeItem - видаляє одне поле за ключем
 // localStorage.removeItem(keyForBook);
 // clear - повністю очіщує localStorage
-localStorage.clear();
+// localStorage.clear();
+
+// save('КЛЮЧ', [1, 2, 3]);
+// save('qwe', { asd: 'asd' });
+// save();
+// save({ qwe: 'asd' });
+
+// const data = loadFromLocalStorage('КЛЮЧ');

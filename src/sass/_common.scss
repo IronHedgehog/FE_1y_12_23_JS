@@ -3,3 +3,21 @@
 .class {
   font-size: 50px;
 }
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form input {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.form textarea {
+  resize: none;
+  display: block;
+  margin-bottom: 40px;
+}
