@@ -1,44 +1,36 @@
-// import { loadFromLocalStorage, save } from './js/localStorageModule';
+// setTimeout - приймає затримку у мілісекундах
+// setTimeout - встановлює перерву перед виконанням коду у середині таймаут
 
-// const book = {
-//   title: 'title',
-//   description: 'description',
-//   author: 'Author',
-// };
+console.log('Початок'); //синхроний код
 
-// const array = [1, 2, 3, 4, 5];
+const timeout = setTimeout(
+  (a, b, c, d, e, f, g) => {
+    // console.log(a, b, c, d, e, f);
+    console.log('Привіт');
+  },
+  1000
+  // 1,
+  // 2,
+  // 3,
+  // 4,
+  // 5,
+  // 6
+); //асинхронний
 
-// console.log('book', book);
+console.log(timeout);
+console.log('Кінець'); //синхроний код
 
-// const jsonBook = JSON.stringify(book);
+let seconds = 0; // синхроний код
 
-// console.log('json', typeof jsonBook);
-// console.log('json', jsonBook);
+const renderHtml = setInterval(() => {
+  seconds += 1;
+  document.body.innerHTML = seconds;
+  if (seconds === 60) {
+    clearInterval(renderHtml);
+  }
 
-// //Json.parse() - метод який перетворює строку назад на ті дані які ви зберігали
-// const bookAfterStringify = JSON.parse(jsonBook);
+  console.log(seconds);
+}, 1000); // асинхроний код
 
-// console.log(bookAfterStringify);
-
-// const keyForBook = 'BookKey';
-
-// localStorage.setItem(keyForBook, JSON.stringify(book));
-
-// const bookFromLocalStorage = localStorage.getItem(keyForBook);
-
-// const KEY_FOR_ARRAY = 'Array';
-
-// localStorage.setItem(KEY_FOR_ARRAY, JSON.stringify(array));
-
-// console.log(JSON.parse(bookFromLocalStorage));
-// removeItem - видаляє одне поле за ключем
-// localStorage.removeItem(keyForBook);
-// clear - повністю очіщує localStorage
-// localStorage.clear();
-
-// save('КЛЮЧ', [1, 2, 3]);
-// save('qwe', { asd: 'asd' });
-// save();
-// save({ qwe: 'asd' });
-
-// const data = loadFromLocalStorage('КЛЮЧ');
+console.log(renderHtml);
+// синхроний код
