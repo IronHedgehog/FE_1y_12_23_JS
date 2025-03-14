@@ -1,134 +1,42 @@
-// // setTimeout - приймає затримку у мілісекундах
-// // setTimeout - встановлює перерву перед виконанням коду у середині таймаут
+const date = new Date('April 15,1970');
 
-// console.log('Початок'); //синхроний код
+console.log(date);
+// 2030-05-01T10:20:30 - YYYY-MM-DDTHH:MM:SS:MS
+console.log(Date.parse('2026-01-01T00:00:00')); //(1682925630000) - мс з 1970р
+console.log(Date.parse('2026-01-01T00:00:00') - Date.now()); // проміжок часу від зараз до  2026-01-01
 
-// const timeout = setTimeout(
-//   (a, b, c, d, e, f, g) => {
-//     // console.log(a, b, c, d, e, f);
-//     console.log('Привіт');
-//   },
-//   1000
-//   // 1,
-//   // 2,
-//   // 3,
-//   // 4,
-//   // 5,
-//   // 6
-// ); //асинхронний
+const time = new Date('2025-03-01');
 
-// console.log(timeout);
-// console.log('Кінець'); //синхроний код
+console.log(time.getDate()); // число місяця
+console.log(time.getDay()); // видає значення по індексу з 0 до 6 (Починає відлік з неділі, субота 6)
 
-// //let seconds = 0; // синхроний код
+console.log(time.getMonth()); // видає значення по індексу з 0 до 11
 
-// // const renderHtml = setInterval(() => {
-// //   seconds += 1;
-// //   // document.body.innerHTML = seconds;
-// //   if (seconds === 1) {
-// //     clearInterval(renderHtml);
-// //   }
+console.log(time.getFullYear()); // рік
 
-// //   console.log(seconds);
-// // }, 1000); // асинхроний код
+console.log(time.getHours());
+console.log(time.getMinutes());
+console.log(time.getSeconds());
+console.log(time.getMilliseconds());
 
-// // console.log(renderHtml);
-// // синхроний код
+console.log(time.getTime());
 
-// // querySelector();
-// // querySelectorAll();
-// // getElementById();
+console.log(time.toUTCString());
+console.log(time.getUTCDay());
+console.log(time.getUTCMonth());
 
-// // const input = document.getElementById('input');
-// // const counter = document.querySelector('.counter');
+const newYear = Date.parse('2026-01-01T00:00:00');
 
-// // input.addEventListener('input', onInput);
-// // let interval;
+// console.log(newYear.toLocaleString());
 
-// // function onInput(e) {
-// //   let seconds = e.target.value;
-// //   console.log(seconds);
-
-// //   interval = setInterval(() => {
-// //     counter.innerHTML = seconds;
-// //     if (seconds === -1) {
-// //       clearInterval(interval);
-// //     }
-// //   }, 1000);
-// // }
-
-// const board = document.getElementById('board');
-// const button = document.getElementById('startGame');
-// const counter = document.querySelector('.counter');
-
-// button.addEventListener('click', onClick);
-// board.addEventListener('click', clickOnBoard);
-
-// let interval;
-// let score = 0;
-// let seconds = 10;
-
-// function onClick(e) {
-//   board.style.display = 'block';
-
-//   interval = setInterval(() => {
-//     seconds--;
-//     counter.innerHTML = seconds;
-//     if (seconds === -1) {
-//       clearInterval(interval);
-//       alert(`Гру завершено ви отримали ${score} очок`);
-//     }
-//   }, 1000);
-// }
-
-// function clickOnBoard(e) {
-//   if (!e.target.classList.contains('gameElement')) return;
-//   score += 200;
-
-//   e.target.style.backgroundColor = 'transparent';
-//   setTimeout(() => {
-//     e.target.style.backgroundColor = 'green';
-//   }, 500);
-// }
-
-const input = document.getElementById('input');
-const start = document.getElementById('start');
-const stop = document.getElementById('stop');
-const restart = document.getElementById('restart');
-
-console.log(input, start, stop);
-start.addEventListener('click', onStart);
-stop.addEventListener('click', onStop);
-restart.addEventListener('click', onRestart);
-
-let interval;
-let seconds;
-
-function onStart() {
-  seconds = Number(input.value);
-  const ms = seconds / 1000;
-
-  interval = setInterval(() => {
-    seconds--;
-    if (seconds === 0) {
-      clearInterval(interval);
-    }
-    console.log(seconds);
-  }, ms);
-}
-
-function onStop() {
-  clearInterval(interval);
-}
-
-function onRestart(params) {
-  const ms = seconds / 1000;
-
-  interval = setInterval(() => {
-    seconds--;
-    if (seconds === 0) {
-      clearInterval(interval);
-    }
-    console.log(seconds);
-  }, ms);
-}
+console.log(
+  time.toLocaleString('Uk-uk', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+);
+// dayPeriod: 'short',
+// hour12: true,
