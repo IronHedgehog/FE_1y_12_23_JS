@@ -1,48 +1,33 @@
-const random = Math.floor(Math.random() * 10);
+// GET - отримати дані
+// POST - Додати інформацію на сервер
+// PUT - Оновлення даних(Видалити та на місце видаленого додати нове)
+// PATCH - Оновлення даних(Конкретної частини)
+// DELETE - Видалення даних
 
-const makePromise = (text, errorText, delay) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (random > 5) {
-        resolve(text);
-      } else {
-        reject(errorText);
-      }
-    }, delay);
-  });
+const post = {
+  text: 'text',
 };
 
-const promise1 = makePromise('promise1', 'Error1', 500);
-const promise2 = makePromise('promise2', 'Error2', 2000);
-const promise3 = makePromise('promise3', 'Error3', 1000);
+const data = fetch('https://jsonplaceholder.typicode.com/users', {
+  method: 'POST',
+  body: JSON.stringify(post),
+  // headers: {
+  //   'content-type': 'application/json',
+  // },
+});
+data
+  .then(value => {
+    // Відповідь від сервера шо все круто
+    // Форматування даних
+    console.log(value);
 
-// Promise.all - повертає проміс
-
-// Promise.all([promise1, promise2, promise3])
-//   .then(value => {
-//     console.log(value);
-//   })
-//   .catch(error => console.log(error));
-
-// Promise.race([promise1, promise2, promise3])
-//   .then(value => console.log('race', value))
-//   .catch(error => console.log('race', error));
-
-// Promise.any([promise1, promise2, promise3])
-//   .then(value => console.log('any', value))
-//   .catch(error => console.log('any', error.errors));
-
-// new Promise(resolve => resolve('успіх')).then(value => console.log(value));
-// Promise.resolve('Успіх').then(value => console.log(value));
-
-// new Promise((res, rej) => {
-//   rej('Не успіх');
-// }).catch(error => console.log(error));
-
-// Promise.reject('Не успіх').catch(error => console.log(error));
-
-const promises = [promise1, promise2, promise3];
-
-Promise.allSettled(promises).then(results =>
-  results.forEach(result => console.log(result.value))
-);
+    return value.json();
+  })
+  .then(value => {
+    // ОТримуємо та працюємо з даними
+    console.log(value);
+  })
+  .catch(error => {
+    // Обробка помилки
+    console.log(error);
+  });
