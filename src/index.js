@@ -1,57 +1,28 @@
-// GET - отримати дані
-// POST - Додати інформацію на сервер
-// PUT - Оновлення даних(Видалити та на місце видаленого додати нове)
-// PATCH - Оновлення даних(Конкретної частини)
-// DELETE - Видалення даних
+import axios from 'axios';
+// async - ця функція буде асинхронною
+const getImgs = async () => {
+  // const img = fetch(
+  //   'https://pixabay.com/api/?key=37133631-8f51e9c6f744fc90bf0fea549&q=yellow+flowers&image_type=photo'
+  // );
+  // console.log(img);
+  // img
+  //   .then(value => {
+  //     return value.json();
+  //   })
+  //   .then(date => {
+  //     console.log(date);
+  //   });
+  // async await
+  // try catch
+  try {
+    const { data } = await axios.get(
+      'https://pixabay.com/api/?key=37133631-8f51e9c6f744fc90bf0fea549&q=yellow+flowers&image_type=photo'
+    );
 
-const post = {
-  text: 'text',
+    console.log(data.hits);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-// const data = fetch('https://jsonplaceholder.typicode.com/users', {
-//   method: 'POST',
-//   body: JSON.stringify(post),
-//   // headers: {
-//   //   'content-type': 'application/json',
-//   // },
-// });
-// data
-//   .then(value => {
-//     // Відповідь від сервера шо все круто
-//     // Форматування даних
-//     console.log(value);
-
-//     return value.json();
-//   })
-//   .then(value => {
-//     // ОТримуємо та працюємо з даними
-//     console.log(value);
-//   })
-//   .catch(error => {
-//     // Обробка помилки
-//     console.log(error);
-//   });
-
-// https://newsapi.org/v2/ - шлях до бекенду
-// /top-headlines - ендпоінт
-// ?country=us&apiKey=2667a6ad789c4db2a2e882b6e2781cbb
-const news = fetch(
-  'https://newsapi.org/v2/top-headlines?q=Tesla&apiKey=2667a6ad789c4db2a2e882b6e2781cbb'
-);
-
-news
-  .then(value => {
-    // Відповідь від сервера шо все круто
-    // Форматування даних
-    console.log(value);
-
-    return value.json();
-  })
-  .then(value => {
-    // ОТримуємо та працюємо з даними
-    console.log(value);
-  })
-  .catch(error => {
-    // Обробка помилки
-    console.log(error);
-  });
+getImgs();
