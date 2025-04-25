@@ -35,3 +35,38 @@ function patchUser() {
   });
 }
 // patchUser();
+
+function putUser() {
+  const url = 'http://localhost:3000';
+  const endpoint = '/users';
+  const id = 'd023';
+
+  const user = {
+    name: 'NewUser',
+    password: 'newPassword',
+    email: 'newEmail',
+  };
+
+  // http://localhost:3000/users/d023
+  fetch(`${url}${endpoint}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(user),
+  })
+    .then(res => res.json())
+    .then(data => console.log(data));
+}
+
+// putUser();
+function deleteUser() {
+  const url = 'http://localhost:3000';
+  const endpoint = '/users';
+  const id = 'f7c0';
+
+  fetch(`${url}${endpoint}/${id}`, {
+    method: 'DELETE',
+  })
+    .then(res => res.json())
+    .then(data => console.log(data));
+}
+
+// deleteUser();
